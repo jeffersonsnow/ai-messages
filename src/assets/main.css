@@ -1,17 +1,43 @@
 :root {
-  --cream: #FAFAF7;
-  --plum: #4E1A45;
-  --plum-dark: #38112F;
-  --plum-light: #7B4876;
-  --amber: #C4954A;
-  --amber-light: #E8CC94;
-  --sage: #8A9B72;
-  --sage-light: #C4D4B0;
-  --earth: #6B5C44;
-  --text: #1A1A1A;
-  --text-muted: #6B6460;
-  --border: #E5DDD5;
-  --card: #FFFFFF;
+  /* Surfaces */
+  --ivory:       #F7F4EF;
+  --ivory-2:     #EDE8DF;
+  --charcoal:    #0C0B09;
+  --forest:      #0E1B0B;
+  --forest-mid:  #162C12;
+  --card:        #FFFFFF;
+
+  /* Accents */
+  --gold:        #B8864E;
+  --gold-light:  #DEBA7E;
+  --gold-pale:   #F2E6CC;
+  --sage:        #5A7A42;
+  --sage-light:  #8BAF6A;
+  --sage-pale:   #C8DABB;
+
+  /* Product colours */
+  --violet:       #5C1A8C;   /* Anima */
+  --violet-mid:   #8A4ABB;
+  --violet-pale:  #D4AAEE;
+  --crimson:      #8C1A1A;   /* Aeternum */
+  --crimson-mid:  #C04040;
+  --crimson-pale: #EEA8A8;
+
+  /* Legacy ARG brand colour */
+  --plum:        #4E1A45;
+  --plum-dark:   #38112F;
+  --plum-light:  #7B4876;
+
+  /* Text */
+  --text:        #1A1916;
+  --text-muted:  #6B6358;
+  --border:      #E5DDD5;
+
+  /* Alias kept for BotanicalDivider + other components */
+  --cream:       #F7F4EF;
+  --amber:       #B8864E;
+  --amber-light: #DEBA7E;
+  --sage-light-compat: #C8DABB;
 }
 
 *, *::before, *::after {
@@ -20,12 +46,10 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--cream);
+  background: var(--ivory);
   color: var(--text);
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   font-weight: 300;
@@ -37,59 +61,56 @@ body {
 
 h1, h2, h3, h4, h5 {
   font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  line-height: 1.2;
+  line-height: 1.15;
   font-weight: 400;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
 
-img {
-  max-width: 100%;
-  display: block;
-}
+img { max-width: 100%; display: block; }
 
 .container {
-  max-width: 1100px;
+  max-width: 1120px;
   margin: 0 auto;
   padding: 0 2rem;
 }
 
-.section {
-  padding: 8rem 0;
-}
+.section { padding: 9rem 0; }
 
+/* On dark backgrounds pass --on-dark="true" via class */
 .section-eyebrow {
   font-family: 'Inter', sans-serif;
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 500;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: var(--amber);
+  color: var(--gold);
   margin-bottom: 1rem;
   display: block;
 }
 
 .section-heading {
-  font-size: clamp(2.2rem, 4vw, 3rem);
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
   color: var(--text);
   margin-bottom: 1.5rem;
 }
+
+.section-heading--light { color: white; }
 
 .section-sub {
   font-size: 1.05rem;
   color: var(--text-muted);
   font-weight: 300;
-  line-height: 1.85;
+  line-height: 1.9;
 }
 
-/* Fade-up entrance animation */
+.section-sub--light { color: rgba(255,255,255,0.65); }
+
+/* Fade-up entrance */
 .fade-up {
   opacity: 0;
   transform: translateY(28px);
-  transition: opacity 0.75s ease, transform 0.75s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-up.visible {
@@ -97,9 +118,9 @@ img {
   transform: translateY(0);
 }
 
-.fade-up.d1 { transition-delay: 0.1s; }
-.fade-up.d2 { transition-delay: 0.2s; }
-.fade-up.d3 { transition-delay: 0.3s; }
-.fade-up.d4 { transition-delay: 0.4s; }
-.fade-up.d5 { transition-delay: 0.5s; }
-.fade-up.d6 { transition-delay: 0.6s; }
+.fade-up.d1 { transition-delay: 0.08s; }
+.fade-up.d2 { transition-delay: 0.18s; }
+.fade-up.d3 { transition-delay: 0.28s; }
+.fade-up.d4 { transition-delay: 0.38s; }
+.fade-up.d5 { transition-delay: 0.48s; }
+.fade-up.d6 { transition-delay: 0.58s; }

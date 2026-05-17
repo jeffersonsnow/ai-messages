@@ -5,7 +5,7 @@ const scrolled = ref(false)
 const menuOpen = ref(false)
 
 function onScroll() {
-  scrolled.value = window.scrollY > 60
+  scrolled.value = window.scrollY > 80
 }
 
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
@@ -27,9 +27,7 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
       </nav>
 
       <button class="nav__toggle" @click="menuOpen = !menuOpen" :aria-expanded="menuOpen" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
@@ -38,19 +36,24 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 <style scoped>
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 200;
   padding: 1.8rem 0;
-  transition: background 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+  transition: background 0.5s ease, box-shadow 0.5s ease, padding 0.4s ease;
+  /* CSS var trick for dark→light transition */
+  --nav-logo: white;
+  --nav-link: rgba(255,255,255,0.85);
+  --nav-link-hover: white;
 }
 
 .nav--scrolled {
-  background: rgba(250, 250, 247, 0.97);
-  box-shadow: 0 1px 0 rgba(78, 26, 69, 0.08);
+  background: rgba(247, 244, 239, 0.97);
+  box-shadow: 0 1px 0 rgba(26,25,22,0.07);
   padding: 1.1rem 0;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(14px);
+  --nav-logo: #B8864E;
+  --nav-link: #1A1916;
+  --nav-link-hover: #B8864E;
 }
 
 .nav__inner {
@@ -63,10 +66,11 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.9rem;
   font-weight: 500;
-  color: var(--plum);
+  color: var(--nav-logo);
   letter-spacing: 0.02em;
   text-decoration: none;
   flex-shrink: 0;
+  transition: color 0.4s;
 }
 
 .nav__links {
@@ -80,26 +84,30 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   font-weight: 400;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--text);
+  color: var(--nav-link);
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.3s;
 }
 
 .nav__links a:hover {
-  color: var(--plum);
+  color: var(--nav-link-hover);
 }
 
 .nav__cta {
-  background: var(--plum) !important;
+  background: var(--gold) !important;
   color: white !important;
   padding: 0.58rem 1.3rem !important;
   border-radius: 2px;
   letter-spacing: 0.1em !important;
-  transition: background 0.2s !important;
+  transition: background 0.2s, opacity 0.3s !important;
+}
+
+.nav--scrolled .nav__cta {
+  background: var(--plum) !important;
 }
 
 .nav__cta:hover {
-  background: var(--plum-dark) !important;
+  opacity: 0.88 !important;
 }
 
 .nav__toggle {
@@ -116,22 +124,17 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   display: block;
   width: 24px;
   height: 1.5px;
-  background: var(--text);
+  background: var(--nav-link);
   transition: all 0.3s;
 }
 
-@media (max-width: 900px) {
-  .nav__toggle {
-    display: flex;
-  }
+@media (max-width: 960px) {
+  .nav__toggle { display: flex; }
 
   .nav__links {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: var(--cream);
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--charcoal);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -139,18 +142,11 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
     transform: translateX(100%);
     transition: transform 0.4s ease;
     z-index: 190;
+    --nav-link: rgba(255,255,255,0.8);
+    --nav-link-hover: var(--gold);
   }
 
-  .nav__links.is-open {
-    transform: translateX(0);
-  }
-
-  .nav__links a {
-    font-size: 0.85rem;
-  }
-
-  .nav__cta {
-    margin-top: 1rem;
-  }
+  .nav__links.is-open { transform: translateX(0); }
+  .nav__links a { font-size: 0.85rem; }
 }
 </style>

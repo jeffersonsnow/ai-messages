@@ -4,8 +4,15 @@ const year = new Date().getFullYear()
 
 <template>
   <footer class="footer" id="contact">
-    <div class="footer__top">
-      <div class="container footer__top-inner">
+    <!-- Transition wave from above -->
+    <div class="footer__top-wave" aria-hidden="true">
+      <svg viewBox="0 0 1200 50" fill="none" preserveAspectRatio="none">
+        <path d="M0 50 Q300 0 600 28 Q900 50 1200 12 L1200 0 L0 0Z" fill="#F7F4EF"/>
+      </svg>
+    </div>
+
+    <div class="footer__main">
+      <div class="container footer__main-inner">
         <div class="footer__brand">
           <p class="footer__logo">Veșnică</p>
           <p class="footer__brand-tagline">You were chosen.</p>
@@ -13,6 +20,19 @@ const year = new Date().getFullYear()
             A wellness community for those who are ready. Founded in Rodney, Delaware.
             Growing where it is meant to grow.
           </p>
+
+          <!-- Botanical leaf ornament -->
+          <svg class="footer__ornament" viewBox="0 0 80 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 15 C35 8 25 5 15 10" stroke="rgba(184,134,78,0.35)" stroke-width="1" fill="none"/>
+            <path d="M40 15 C35 22 25 22 15 18" stroke="rgba(184,134,78,0.35)" stroke-width="1" fill="none"/>
+            <path d="M40 15 C45 8 55 5 65 10" stroke="rgba(184,134,78,0.35)" stroke-width="1" fill="none"/>
+            <path d="M40 15 C45 22 55 22 65 18" stroke="rgba(184,134,78,0.35)" stroke-width="1" fill="none"/>
+            <ellipse cx="22" cy="9" rx="6" ry="2.5" fill="rgba(184,134,78,0.2)" transform="rotate(-25 22 9)"/>
+            <ellipse cx="22" cy="19" rx="6" ry="2.5" fill="rgba(184,134,78,0.2)" transform="rotate(20 22 19)"/>
+            <ellipse cx="58" cy="9" rx="6" ry="2.5" fill="rgba(184,134,78,0.2)" transform="rotate(25 58 9)"/>
+            <ellipse cx="58" cy="19" rx="6" ry="2.5" fill="rgba(184,134,78,0.2)" transform="rotate(-20 58 19)"/>
+            <circle cx="40" cy="15" r="2.5" fill="rgba(184,134,78,0.4)"/>
+          </svg>
         </div>
 
         <div class="footer__links-group">
@@ -53,12 +73,14 @@ const year = new Date().getFullYear()
             </a>
             <a href="#" aria-label="Facebook">
               <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                      stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
               </svg>
             </a>
             <a href="#" aria-label="Pinterest">
               <svg viewBox="0 0 24 24" fill="none" width="18" height="18">
-                <path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.04-2.83.18-.77 1.22-5.15 1.22-5.15s-.31-.62-.31-1.54c0-1.45.84-2.53 1.88-2.53.89 0 1.32.67 1.32 1.47 0 .9-.57 2.24-.87 3.49-.25 1.04.52 1.88 1.54 1.88 1.85 0 3.27-1.95 3.27-4.77 0-2.49-1.79-4.24-4.35-4.24-2.96 0-4.7 2.22-4.7 4.52 0 .9.35 1.86.78 2.38.09.1.1.2.07.3-.08.32-.25 1.04-.29 1.18-.05.19-.16.23-.38.14-1.39-.65-2.26-2.68-2.26-4.32 0-3.51 2.55-6.74 7.35-6.74 3.86 0 6.86 2.75 6.86 6.42 0 3.83-2.41 6.91-5.76 6.91-1.13 0-2.19-.59-2.55-1.28l-.69 2.6c-.25.97-.93 2.18-1.39 2.92.04.01.08.02.13.02C17.52 22 22 17.52 22 12S17.52 2 12 2z" stroke="currentColor" stroke-width="0" fill="currentColor" opacity="0.8"/>
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M9 15c.5-1.5 1-3 1-5a2 2 0 1 1 4 0c0 2 .5 4 1 5.5" stroke="currentColor" stroke-width="1.2"/>
               </svg>
             </a>
           </div>
@@ -68,9 +90,7 @@ const year = new Date().getFullYear()
 
     <div class="footer__bottom">
       <div class="container footer__bottom-inner">
-        <p class="footer__copy">
-          © {{ year }} Veșnică Wellness LLC. All rights reserved.
-        </p>
+        <p class="footer__copy">© {{ year }} Veșnică Wellness LLC. All rights reserved.</p>
         <nav class="footer__legal-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
@@ -89,7 +109,7 @@ const year = new Date().getFullYear()
           and subject to facilitator approval. Veșnică Wellness LLC makes no warranty, express or implied, regarding
           outcomes associated with participation in any tier of its distributor program. All distributor agreements
           are subject to the Veșnică Independent Distributor Policies and Procedures manual, available upon request.
-          Veșnică, Vită, Sanguis, Floare Neagră, and Circle of Light are trademarks of Veșnică Wellness LLC.
+          Veșnică, Anima, Aeternum, Floare Neagră, and Circle of Light are trademarks of Veșnică Wellness LLC.
           Questions regarding this disclaimer may be directed to legal@vesnicawellness.com.
         </p>
       </div>
@@ -99,16 +119,28 @@ const year = new Date().getFullYear()
 
 <style scoped>
 .footer {
-  background: var(--plum-dark);
-  color: rgba(255,255,255,0.8);
+  background: var(--charcoal);
+  color: rgba(255,255,255,0.75);
+  position: relative;
 }
 
-.footer__top {
+.footer__top-wave {
+  line-height: 0;
+  margin-bottom: -2px;
+}
+
+.footer__top-wave svg {
+  width: 100%;
+  height: 52px;
+  display: block;
+}
+
+.footer__main {
   padding: 5rem 0 4rem;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 
-.footer__top-inner {
+.footer__main-inner {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
   gap: 4rem;
@@ -117,67 +149,71 @@ const year = new Date().getFullYear()
 
 .footer__logo {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 2.2rem;
-  font-weight: 400;
+  font-size: 2.4rem;
+  font-weight: 300;
   color: white;
   letter-spacing: 0.03em;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
 }
 
 .footer__brand-tagline {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 0.95rem;
   font-style: italic;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.35);
   margin-bottom: 1.2rem;
 }
 
 .footer__brand-desc {
   font-size: 0.84rem;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.8;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.footer__ornament {
+  width: 80px;
+  height: 30px;
 }
 
 .footer__links-group h4 {
   font-family: 'Inter', sans-serif;
-  font-size: 0.65rem;
+  font-size: 0.63rem;
   font-weight: 500;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  margin-bottom: 1.2rem;
+  color: var(--gold);
+  margin-bottom: 1.3rem;
 }
 
 .footer__links-group ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.8rem;
 }
 
 .footer__links-group ul a {
-  font-size: 0.86rem;
-  color: rgba(255,255,255,0.65);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.footer__links-group ul a:hover {
-  color: white;
-}
+.footer__links-group ul a:hover { color: rgba(255,255,255,0.9); }
 
 .footer__links-group address {
   font-style: normal;
-  font-size: 0.86rem;
-  color: rgba(255,255,255,0.6);
-  line-height: 1.75;
-  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.8;
+  margin-bottom: 0.9rem;
 }
 
 .footer__email {
-  font-size: 0.82rem;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 1.2rem;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.3rem;
 }
 
 .footer__social {
@@ -186,18 +222,15 @@ const year = new Date().getFullYear()
 }
 
 .footer__social a {
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.38);
   transition: color 0.2s;
   line-height: 0;
 }
 
-.footer__social a:hover {
-  color: rgba(255,255,255,0.85);
-}
+.footer__social a:hover { color: rgba(255,255,255,0.8); }
 
-/* Bottom bar */
 .footer__bottom {
-  padding: 2rem 0 3rem;
+  padding: 2rem 0 3.5rem;
 }
 
 .footer__bottom-inner {
@@ -209,8 +242,8 @@ const year = new Date().getFullYear()
 }
 
 .footer__copy {
-  font-size: 0.78rem;
-  color: rgba(255,255,255,0.35);
+  font-size: 0.76rem;
+  color: rgba(255,255,255,0.28);
 }
 
 .footer__legal-links {
@@ -219,32 +252,29 @@ const year = new Date().getFullYear()
 }
 
 .footer__legal-links a {
-  font-size: 0.74rem;
-  color: rgba(255,255,255,0.3);
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.25);
   text-decoration: none;
   transition: color 0.2s;
   letter-spacing: 0.04em;
 }
 
-.footer__legal-links a:hover {
-  color: rgba(255,255,255,0.6);
-}
+.footer__legal-links a:hover { color: rgba(255,255,255,0.55); }
 
-/* Fine print — legal text, small and buried */
 .footer__fine-print {
-  font-size: 0.66rem;
-  color: rgba(255,255,255,0.2);
-  line-height: 1.7;
+  font-size: 0.64rem;
+  color: rgba(255,255,255,0.18);
+  line-height: 1.75;
   max-width: 900px;
 }
 
 @media (max-width: 900px) {
-  .footer__top-inner { grid-template-columns: 1fr 1fr; row-gap: 3rem; }
+  .footer__main-inner { grid-template-columns: 1fr 1fr; row-gap: 3rem; }
   .footer__bottom-inner { flex-direction: column; align-items: flex-start; }
   .footer__legal-links { flex-wrap: wrap; gap: 1rem; }
 }
 
 @media (max-width: 560px) {
-  .footer__top-inner { grid-template-columns: 1fr; }
+  .footer__main-inner { grid-template-columns: 1fr; }
 }
 </style>

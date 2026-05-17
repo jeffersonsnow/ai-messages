@@ -20,10 +20,10 @@ const tiers = [
     name: 'Seedling',
     icon: 'seedling',
     tagline: 'Where you begin.',
-    desc: 'Your first step into the Veșnică community. Access to Vită and Sanguis at distributor pricing, entry to community events, and a personal onboarding session with your sponsoring distributor.',
+    desc: 'Your first step into the Veșnică community. Access to Anima and Aeternum at distributor pricing, entry to community events, and a personal onboarding session with your sponsoring distributor.',
     perks: ['Personal onboarding', 'Community membership', 'Distributor pricing', 'Monthly newsletter'],
     cta: 'Begin Here',
-    accent: '#8A9B72',
+    accent: '#5A7A42',
   },
   {
     name: 'Bloom',
@@ -32,7 +32,7 @@ const tiers = [
     desc: 'You have built momentum. Bloom members access expanded product eligibility, host their own community sessions, and begin building their own distributor network.',
     perks: ['Network-building rights', 'Bloom Events access', 'Expanded product line', 'Mentorship pairing'],
     cta: 'Apply for Bloom',
-    accent: '#C4954A',
+    accent: '#B8864E',
   },
   {
     name: 'Root',
@@ -81,38 +81,34 @@ const tiers = [
           <div class="tier-card__accent" :style="{ background: tier.accent }"></div>
 
           <div class="tier-card__icon">
-            <!-- Seedling icon -->
             <svg v-if="tier.icon === 'seedling'" viewBox="0 0 40 40" fill="none">
-              <path d="M20 36 L20 18" stroke="#8A9B72" stroke-width="1.5"/>
-              <path d="M20 18 C20 10 10 6 10 6 C10 6 10 14 20 18" fill="#8A9B72" opacity="0.7"/>
-              <path d="M20 18 C20 10 30 6 30 6 C30 6 30 14 20 18" fill="#8A9B72" opacity="0.5"/>
+              <path d="M20 36 L20 18" :stroke="tier.accent" stroke-width="1.5"/>
+              <path d="M20 18 C20 10 10 6 10 6 C10 6 10 14 20 18" :fill="tier.accent" opacity="0.7"/>
+              <path d="M20 18 C20 10 30 6 30 6 C30 6 30 14 20 18" :fill="tier.accent" opacity="0.5"/>
             </svg>
-            <!-- Bloom icon -->
             <svg v-if="tier.icon === 'bloom'" viewBox="0 0 40 40" fill="none">
-              <circle cx="20" cy="20" r="5" fill="#C4954A" opacity="0.8"/>
-              <ellipse cx="20" cy="10" rx="5" ry="8" fill="#C4954A" opacity="0.45"/>
-              <ellipse cx="20" cy="30" rx="5" ry="8" fill="#C4954A" opacity="0.45"/>
-              <ellipse cx="10" cy="20" rx="8" ry="5" fill="#C4954A" opacity="0.45"/>
-              <ellipse cx="30" cy="20" rx="8" ry="5" fill="#C4954A" opacity="0.45"/>
-              <ellipse cx="12" cy="12" rx="5" ry="7" fill="#C4954A" opacity="0.3" transform="rotate(-45 12 12)"/>
-              <ellipse cx="28" cy="12" rx="5" ry="7" fill="#C4954A" opacity="0.3" transform="rotate(45 28 12)"/>
-              <ellipse cx="12" cy="28" rx="5" ry="7" fill="#C4954A" opacity="0.3" transform="rotate(45 12 28)"/>
-              <ellipse cx="28" cy="28" rx="5" ry="7" fill="#C4954A" opacity="0.3" transform="rotate(-45 28 28)"/>
+              <circle cx="20" cy="20" r="5" :fill="tier.accent" opacity="0.8"/>
+              <ellipse cx="20" cy="10" rx="5" ry="8" :fill="tier.accent" opacity="0.4"/>
+              <ellipse cx="20" cy="30" rx="5" ry="8" :fill="tier.accent" opacity="0.4"/>
+              <ellipse cx="10" cy="20" rx="8" ry="5" :fill="tier.accent" opacity="0.4"/>
+              <ellipse cx="30" cy="20" rx="8" ry="5" :fill="tier.accent" opacity="0.4"/>
+              <ellipse cx="12" cy="12" rx="5" ry="7" :fill="tier.accent" opacity="0.25" transform="rotate(-45 12 12)"/>
+              <ellipse cx="28" cy="12" rx="5" ry="7" :fill="tier.accent" opacity="0.25" transform="rotate(45 28 12)"/>
+              <ellipse cx="12" cy="28" rx="5" ry="7" :fill="tier.accent" opacity="0.25" transform="rotate(45 12 28)"/>
+              <ellipse cx="28" cy="28" rx="5" ry="7" :fill="tier.accent" opacity="0.25" transform="rotate(-45 28 28)"/>
             </svg>
-            <!-- Root icon -->
             <svg v-if="tier.icon === 'root'" viewBox="0 0 40 40" fill="none">
-              <path d="M20 8 L20 20" stroke="#7B4876" stroke-width="1.5"/>
-              <path d="M20 20 L10 32" stroke="#7B4876" stroke-width="1.5"/>
-              <path d="M20 20 L30 32" stroke="#7B4876" stroke-width="1.5"/>
-              <path d="M20 26 L14 36" stroke="#7B4876" stroke-width="1.2" opacity="0.6"/>
-              <path d="M20 26 L26 36" stroke="#7B4876" stroke-width="1.2" opacity="0.6"/>
-              <circle cx="20" cy="8" r="3.5" fill="#7B4876" opacity="0.8"/>
+              <path d="M20 8 L20 20" :stroke="tier.accent" stroke-width="1.5"/>
+              <path d="M20 20 L10 32" :stroke="tier.accent" stroke-width="1.5"/>
+              <path d="M20 20 L30 32" :stroke="tier.accent" stroke-width="1.5"/>
+              <path d="M20 26 L14 36" :stroke="tier.accent" stroke-width="1.2" opacity="0.6"/>
+              <path d="M20 26 L26 36" :stroke="tier.accent" stroke-width="1.2" opacity="0.6"/>
+              <circle cx="20" cy="8" r="3.5" :fill="tier.accent" opacity="0.8"/>
             </svg>
-            <!-- Renewal icon -->
             <svg v-if="tier.icon === 'renewal'" viewBox="0 0 40 40" fill="none">
-              <circle cx="20" cy="20" r="14" stroke="#4E1A45" stroke-width="1"/>
-              <circle cx="20" cy="20" r="8" stroke="#4E1A45" stroke-width="1" opacity="0.6"/>
-              <circle cx="20" cy="20" r="3" fill="#4E1A45" opacity="0.8"/>
+              <circle cx="20" cy="20" r="14" :stroke="tier.accent" stroke-width="1"/>
+              <circle cx="20" cy="20" r="8"  :stroke="tier.accent" stroke-width="1" opacity="0.6"/>
+              <circle cx="20" cy="20" r="3"  :fill="tier.accent" opacity="0.8"/>
             </svg>
           </div>
 
@@ -131,19 +127,15 @@ const tiers = [
 
           <button
             :class="['tier-card__cta', { 'tier-card__cta--disabled': tier.restricted }]"
+            :style="!tier.restricted ? { background: tier.accent } : {}"
             :disabled="tier.restricted"
           >{{ tier.cta }}</button>
         </div>
       </div>
 
-      <!-- Tier flow arrow -->
       <div :class="['dist__flow', 'fade-up', 'd5', { visible: inView }]">
-        <p>
-          Seedling <span>→</span> Bloom <span>→</span> Root <span>→</span> Renewal
-        </p>
-        <p class="dist__flow-note">
-          Your distributor will guide you. Trust the process. The community holds you.
-        </p>
+        <p>Seedling <span>→</span> Bloom <span>→</span> Root <span>→</span> Renewal</p>
+        <p class="dist__flow-note">Your distributor will guide you. Trust the process. The community holds you.</p>
       </div>
     </div>
   </section>
@@ -151,7 +143,7 @@ const tiers = [
 
 <style scoped>
 .dist {
-  background: var(--cream);
+  background: var(--ivory);
 }
 
 .dist__header {
@@ -160,16 +152,15 @@ const tiers = [
 }
 
 .dist__header-sub {
-  max-width: 560px;
+  max-width: 540px;
   margin: 0 auto 1.5rem;
 }
 
-/* "YOU WERE CHOSEN." — third occurrence, heavy weight */
 .dist__chosen {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.15rem;
   font-weight: 600;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.28em;
   color: var(--plum);
   margin-bottom: 2rem;
   text-transform: uppercase;
@@ -178,14 +169,14 @@ const tiers = [
 .dist__tiers {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 1.2rem;
+  gap: 1.1rem;
   margin-bottom: 3.5rem;
 }
 
 .tier-card {
-  background: var(--card);
+  background: white;
   border: 1px solid var(--border);
-  border-radius: 3px;
+  border-radius: 2px;
   padding: 2.2rem 1.6rem;
   display: flex;
   flex-direction: column;
@@ -195,26 +186,24 @@ const tiers = [
 }
 
 .tier-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(78,26,69,0.07);
+  transform: translateY(-5px);
+  box-shadow: 0 14px 36px rgba(26,25,22,0.08);
 }
 
 .tier-card--featured {
-  border-color: rgba(123,72,118,0.4);
-  box-shadow: 0 4px 20px rgba(78,26,69,0.08);
+  border-color: rgba(123,72,118,0.3);
+  box-shadow: 0 4px 20px rgba(78,26,69,0.06);
 }
 
 .tier-card--restricted {
-  background: #F8F4F6;
+  background: #F8F5F8;
 }
 
 .tier-card__accent {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   height: 3px;
-  opacity: 0.7;
+  opacity: 0.75;
 }
 
 .tier-card__icon {
@@ -225,8 +214,7 @@ const tiers = [
 
 .tier-card__name {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.7rem;
-  font-weight: 400;
+  font-size: 1.75rem;
   color: var(--text);
   margin-bottom: 0.3rem;
 }
@@ -240,7 +228,7 @@ const tiers = [
 }
 
 .tier-card__desc {
-  font-size: 0.84rem;
+  font-size: 0.83rem;
   color: var(--text-muted);
   line-height: 1.8;
   margin-bottom: 1.5rem;
@@ -259,31 +247,31 @@ const tiers = [
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
 
 .tier-card__cta {
-  background: var(--plum);
   color: white;
   border: none;
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 500;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 0.7rem 1.2rem;
+  padding: 0.72rem 1.2rem;
   border-radius: 2px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: opacity 0.2s, transform 0.2s;
   text-align: center;
 }
 
 .tier-card__cta:hover:not(:disabled) {
-  background: var(--plum-dark);
+  opacity: 0.82;
+  transform: translateY(-1px);
 }
 
 .tier-card__cta--disabled {
-  background: transparent;
+  background: transparent !important;
   border: 1px solid var(--border);
   color: var(--text-muted);
   cursor: not-allowed;
@@ -298,15 +286,12 @@ const tiers = [
 
 .dist__flow p:first-child {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.4rem;
+  font-size: 1.45rem;
   color: var(--text);
   letter-spacing: 0.06em;
 }
 
-.dist__flow p span {
-  color: var(--amber);
-  margin: 0 0.5rem;
-}
+.dist__flow p span { color: var(--gold); margin: 0 0.5rem; }
 
 .dist__flow-note {
   font-size: 0.82rem;
@@ -314,11 +299,6 @@ const tiers = [
   margin-top: 0.5rem;
 }
 
-@media (max-width: 900px) {
-  .dist__tiers { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 560px) {
-  .dist__tiers { grid-template-columns: 1fr; }
-}
+@media (max-width: 900px) { .dist__tiers { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .dist__tiers { grid-template-columns: 1fr; } }
 </style>
